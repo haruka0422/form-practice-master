@@ -1,242 +1,239 @@
-@charset "UTF-8"; /* CSSの文字コードをUTF-8に指定 */
+@charset "UTF-8";
 
-/* input, select, button の初期化 */
+/* input / select / button の初期化 */
 input,
 select,
 button {
-  appearance: none; /* ブラウザ標準のスタイルを無効化 */
-  -webkit-appearance: none; /* Safari/Chrome の標準スタイルを無効化 */
-  -moz-appearance: none; /* Firefox の標準スタイルを無効化 */
+  appearance: none; /* ブラウザデフォルトの装飾を消す */
+  -webkit-appearance: none; /* Safari 用 */
+  -moz-appearance: none; /* Firefox 用 */
   background: transparent; /* 背景を透明に */
-  border: none; /* デフォルトの枠線を消す */
+  border: none; /* 枠線を消す */
   outline: none; /* フォーカス時の青枠を消す */
-  padding: 0px; /* 内側余白をゼロに */
+  padding: 0; /* 余白を消す */
 }
 
-/* フォーム全体を囲む領域 */
-.form-wrapper {
-  width: 100%; /* 横幅を画面いっぱいにする */
-  background: #cff1ff;
+/* ------------------------------
+   全体レイアウト
+------------------------------ */
+.wrapper-form {
+  width: 100%; /* 横幅いっぱい */
+  background: #cff1ff; /* 背景色（水色） */
 }
 
-/* 中央寄せのコンテナ */
-.form-inner {
-  margin: 0 auto; /* 左右中央寄せ */
-  width: 600px; /* 横幅を600pxに固定 */
+.inner-form {
+  margin: 0 auto; /* 中央寄せ */
+  width: 600px; /* コンテンツ幅を600pxに固定 */
 }
 
-/* 各セクションのタイトル */
-.content-title {
-  font-size: 18px; /* 文字サイズを18pxに */
-  color: #000000; /* 文字色を黒に */
+/* ------------------------------
+   見出し
+------------------------------ */
+.title-block {
+  font-size: 18px; /* 文字サイズ */
+  color: #000; /* 黒色 */
 }
 
-/* 入力欄やラベルのまとまり */
-.field-section {
-  margin-top: 25px; /* 上に25pxの余白を追加 */
+.form-row {
+  margin-top: 25px; /* 上に余白 */
 }
 
-/* ラベルの文字 */
-.field-label {
-  font-size: 14px; /* 文字サイズ14px */
-  color: #464646; /* グレー系の文字色 */
+.label-form {
+  font-size: 14px; /* 文字サイズ */
+  color: #464646; /* 濃いグレー */
 }
 
-/* 横並び用のFlexレイアウト */
-.flex-layout {
-  display: flex; /* 子要素を横並びにする */
+.flex-box {
+  display: flex; /* 横並び */
 }
 
-/* 各ブロックの余白 */
-.content-personal,
-.content-account,
-.content-contact,
-.content-subscription,
-.content-submit {
-  margin-top: 50px; /* 上に50pxの余白を追加 */
+/* ------------------------------
+   各ブロックの余白
+------------------------------ */
+.block-personal,
+.block-account,
+.block-contact,
+.block-subscription,
+.block-submit {
+  margin-top: 50px; /* セクション間の余白 */
 }
 
-/* 必須マーク（※） */
-.field-required {
-  color: #e40000; /* 赤色にする */
+.mark-required {
+  color: #e40000; /* 赤色（必須マーク） */
 }
 
-/* ページの大見出し */
-.form-page-title {
-  padding-top: 60px; /* 上に60px余白 */
-  font-size: 28px; /* 文字サイズ28px */
-  text-align: center; /* 中央揃え */
+.title-page {
+  padding-top: 60px; /* 上に余白 */
+  font-size: 28px; /* 大きい文字サイズ */
+  text-align: center; /* 中央寄せ */
 }
 
-/* フォーム本体の枠 */
-.form-container {
-  padding: 50px; /* 内側余白50px */
-  background: #ecfaff; /* 薄い水色の背景 */
-  margin-top: 60px; /* 上に60px余白 */
+.box-form {
+  padding: 50px; /* 内側余白 */
+  background: #ecfaff; /* 薄い水色背景 */
+  margin-top: 60px; /* 上に余白 */
 }
 
-/* フォーム見出し */
-.form-heading {
-  font-size: 24px; /* 文字サイズ24px */
-  text-align: center; /* 中央揃え */
+.title-section {
+  font-size: 24px; /* 文字サイズ */
+  text-align: center; /* 中央寄せ */
 }
 
-/* 入力欄（テキスト・セレクト共通） */
-.input-text,
-.input-select {
-  width: 100%; /* 横幅いっぱいに広げる */
-  height: 35px; /* 高さを35pxに固定 */
-  margin-top: 6px; /* 上に6px余白 */
-  padding: 5px; /* 内側に5px余白 */
-  color: #545658; /* 文字色を濃いグレー */
-  box-sizing: border-box; /* 枠・余白を含めてwidthを計算 */
+/* ------------------------------
+   入力欄
+------------------------------ */
+.form-input,
+.form-select {
+  width: 100%; /* 横幅いっぱい */
+  height: 35px; /* 高さ35px */
+  margin-top: 6px; /* 上に余白 */
+  padding: 5px; /* 内側余白 */
+  color: #545658; /* テキスト色 */
+  box-sizing: border-box; /* 枠線・余白込みでサイズ計算 */
   border: 1px solid #d9d9d9; /* 薄いグレーの枠線 */
   background: #fbfbfb; /* 薄いグレー背景 */
 }
 
-/* 入力欄がフォーカスされたとき */
-.input-text:focus,
-.input-select:focus {
-  background-color: #fff; /* 背景を白に */
-  border-color: rgba(93, 130, 194, 0.4); /* 青系の枠線 */
-  box-shadow: 0px 0px 0px 2px rgba(1, 90, 191, 0.1); /* 青系の外側シャドウ */
+.form-input:focus,
+.form-select:focus {
+  background-color: #fff; /* フォーカス時は白背景 */
+  border-color: rgba(93, 130, 194, 0.4); /* 薄い青の枠線 */
+  box-shadow: 0 0 0 2px rgba(1, 90, 191, 0.1); /* 薄い青の外枠 */
 }
 
-/* セレクトや性別エリア全体 */
-.select-group,
-.gender-group {
-  margin-top: 6px; /* 上に6px余白 */
+.group-select,
+.group-gender {
+  margin-top: 6px; /* 上に余白 */
 }
 
-/* セレクトボックスの個別枠 */
-.select-unit {
+.unit-select {
   width: 100%; /* 横幅いっぱい */
-  position: relative; /* 擬似要素を絶対配置するため基準に */
+  position: relative; /* 矢印を絶対配置するための基準 */
 }
 
-/* セレクトボックスの右端の矢印 ▼ */
-.select-unit:after {
-  content: ""; /* 擬似要素を作る */
-  position: absolute; /* 親の中で絶対位置 */
-  width: 5px; /* 幅5px */
-  height: 5px; /* 高さ5px */
-  right: 10px; /* 右から10px */
-  top: 45%; /* 上から45% */
-  display: inline-block; /* インラインブロック表示 */
-  border-bottom: 2px solid #c3c3c3; /* 下に線を引く */
-  border-right: 2px solid #c3c3c3; /* 右に線を引く */
-  transform: rotate(45deg); /* 45度回転させて矢印に */
+.unit-select:after {
+  content: ""; /* 疑似要素（矢印） */
+  position: absolute; /* 相対配置 */
+  width: 5px; /* 幅 */
+  height: 5px; /* 高さ */
+  right: 10px; /* 右に配置 */
+  top: 45%; /* 縦位置 */
+  display: inline-block;
+  border-bottom: 2px solid #c3c3c3; /* 矢印の線 */
+  border-right: 2px solid #c3c3c3;
+  transform: rotate(45deg); /* 45度回転で「∨」にする */
 }
 
-/* 性別ラジオボタンのラベル */
-.gender-item {
-  margin-left: 10px; /* 左に10px余白 */
+/* ------------------------------
+   性別ラジオボタン
+------------------------------ */
+.item-gender {
+  margin-left: 10px; /* 左に余白 */
 }
 
-.gender-item:first-child {
-  margin-left: 0; /* 最初の要素だけ余白なし */
+.item-gender:first-child {
+  margin-left: 0; /* 先頭は余白なし */
 }
 
-/* 性別ラジオボタンの文字部分 */
-.gender-item span {
-  position: relative; /* 擬似要素の基準にする */
-  display: inline-block; /* 横並びに */
-  padding: 3px 3px 3px 20px; /* 左に20px空けて丸を置く */
-  color: #545658; /* 文字色グレー */
+.item-gender span {
+  position: relative; /* 疑似要素の基準 */
+  display: inline-block;
+  padding: 3px 3px 3px 20px; /* 左にアイコン分の余白 */
+  color: #545658;
 }
 
-/* ラジオボタンの丸（未選択時の外枠） */
-.gender-item span:before {
-  content: ""; /* 擬似要素 */
-  position: absolute; /* 文字の左に配置 */
-  top: 50%; /* 縦位置中央 */
-  left: 0px; /* 左端 */
-  width: 14px; /* 幅14px */
-  height: 14px; /* 高さ14px */
-  background-color: #fbfbfb; /* 背景白 */
-  border: 1px solid #d9d9d9; /* 薄い枠線 */
-  border-radius: 50%; /* 丸型に */
-  transform: translateY(-50%); /* 中央揃え */
-}
-
-/* ラジオボタン選択時の内側の丸 */
-.gender-input:checked + span:after {
-  content: ""; /* 擬似要素 */
-  position: absolute; /* 外枠の中に配置 */
-  top: 50%; /* 縦中央 */
-  left: 4px; /* 左に4px */
-  width: 8px; /* 幅8px */
-  height: 8px; /* 高さ8px */
-  background-color: #017cbf; /* 青丸 */
-  border-radius: 50%; /* 丸型 */
-  transform: translateY(-50%); /* 縦中央揃え */
-}
-
-/* チェックボックスのラベル */
-.subscription-label {
-  position: relative; /* 擬似要素の基準に */
-  padding-left: 25px; /* 左に25px空けて□を置く */
-}
-
-/* チェックボックスの□ */
-.subscription-label:before {
-  content: ""; /* 擬似要素 */
-  position: absolute; /* ラベル内に配置 */
-  top: 50%; /* 縦中央 */
-  left: 0px; /* 左端 */
-  width: 15px; /* 幅15px */
-  height: 15px; /* 高さ15px */
-  margin-top: -8px; /* 中央揃え補正 */
-  border: 1px solid #d9d9d9; /* グレーの枠線 */
-  background: #ffffff; /* 背景白 */
-}
-
-/* チェックボックスON時の✔マーク */
-.subscription-item input:checked + .subscription-label:after {
-  content: ""; /* 擬似要素 */
-  position: absolute; /* □の中に配置 */
-  top: 50%; /* 縦中央 */
-  left: 6px; /* 左から6px */
-  width: 6px; /* 幅6px */
-  height: 13px; /* 高さ13px */
-  margin-top: -11px; /* 中央揃え補正 */
-  border-right: 3px solid #0140bf; /* 右下に線を引く */
-  border-bottom: 3px solid #0140bf; /* 左下に線を引く */
-  transform: rotate(45deg); /* 45度回転して✔を表現 */
-}
-
-/* 送信ボタン */
-.btn-submit {
-  cursor: pointer; /* マウスカーソルをポインタに */
-  display: inline-block; /* インラインブロック表示 */
+.item-gender span:before {
+  content: ""; /* 疑似要素（外枠） */
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 14px; /* 丸のサイズ */
+  height: 14px;
+  background-color: #fbfbfb; /* 白背景 */
   border: 1px solid #d9d9d9; /* 薄いグレー枠 */
-  border-radius: 3px; /* 角を丸める */
-  box-sizing: border-box; /* パディング込みでサイズ計算 */
-  font-size: 13px; /* 文字サイズ13px */
-  font-weight: 500;
-  text-align: center; /* 中央揃え */
-  transition: 0.3s; /* 色などの変化を0.3秒で */
-  padding: 13px; /* 内側余白13px */
+  border-radius: 50%; /* 丸にする */
+  transform: translateY(-50%);
+}
+
+.input-gender:checked + span:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 4px;
+  width: 8px;
+  height: 8px;
+  background-color: #017cbf;
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+
+/* ------------------------------
+   購読チェックボックス
+------------------------------ */
+.label-subscription {
+  position: relative; /* 疑似要素基準 */
+  padding-left: 25px; /* 四角分の余白 */
+}
+
+.label-subscription:before {
+  content: ""; /* 四角枠 */
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 15px;
+  height: 15px;
+  margin-top: -8px;
+  border: 1px solid #d9d9d9; /* 薄いグレー枠 */
+  background: #fff; /* 白背景 */
+}
+
+.item-subscription input:checked + .label-subscription:after {
+  content: ""; /* チェックマーク */
+  position: absolute;
+  top: 50%;
+  left: 6px;
+  width: 6px;
+  height: 13px;
+  margin-top: -11px;
+  border-right: 3px solid #0140bf; /* 青いチェック */
+  border-bottom: 3px solid #0140bf;
+  transform: rotate(45deg);
+}
+
+/* ------------------------------
+   送信ボタン
+------------------------------ */
+.btn-form-submit {
+  cursor: pointer; /* カーソルを指マークに */
+  display: inline-block;
+  border: 1px solid #d9d9d9; /* グレーの枠 */
+  border-radius: 3px; /* 角丸 */
+  box-sizing: border-box;
+  font-size: 13px; /* 文字サイズ */
+  font-weight: 500; /* 少し太字 */
+  text-align: center; /* 中央寄せ */
+  transition: 0.3s; /* アニメーション効果 */
+  padding: 13px; /* 内側余白 */
   width: 100%; /* 横幅いっぱい */
-  background: #0170bf; /* 青背景 */
-  color: #fff; /* 文字色白 */
+  background: #0170bf;
+  color: #fff;
 }
 
-/* ボタン押下時のスタイル */
-.btn-submit:active {
-  background: #fff; /* 背景を白に */
-  color: #0170bf; /* 文字色を青に */
-  border: 1px solid #d9d9d9; /* 枠をグレーに */
+.btn-form-submit:active {
+  background: #fff; /* クリック時は白背景 */
+  color: #0170bf; /* 青文字 */
+  border: 1px solid #d9d9d9; /* グレー枠 */
 }
 
-/* 注意書きテキスト */
-.other-text {
-  margin-top: 25px; /* 上に25px余白 */
-  font-size: 10px; /* 文字サイズ10px */
+/* ------------------------------
+   補足テキスト & リンク
+------------------------------ */
+.text-note {
+  margin-top: 25px; /* 上に余白 */
+  font-size: 10px;
 }
 
-/* リンク */
-.link-text {
-  color: #0170bf; /* 青色 */
+.link-form {
+  color: #0170bf;
   text-decoration: none; /* 下線を消す */
 }
